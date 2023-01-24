@@ -16,7 +16,7 @@ const TestimoniVideo = ({ judul, webmedia }: TestimoniVideoType) => {
                 controls
                 preload="metadata"
               >
-                <source src={item.url} type="video/mp4"></source>
+                <source src={`${item.url}#t0.5`} type="video/mp4"></source>
               </video>
             </li>
           );
