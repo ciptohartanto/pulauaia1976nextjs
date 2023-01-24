@@ -1,7 +1,11 @@
 .heroBanner {
+  position: relative;
+  z-index: 1;
+
   &-swiper {
     position: relative;
   }
+
   &-background {
     background-size: cover;
     background-position: center;

@@ -1,7 +1,8 @@
-import Head from "next/head";
-import HeroBanner from "@/components/HeroBanner";
-import GalleryFoto from "@/sections/GalleryFoto";
-import TestimoniVideo from "@/sections/TestimoniVideo";
+import Head from 'next/head';
+import Header from '@/components/Header';
+import HeroBanner from '@/components/HeroBanner';
+import GalleryFoto from '@/sections/GalleryFoto';
+import TestimoniVideo from '@/sections/TestimoniVideo';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <Header />
       <HeroBanner />
       <GalleryFoto />
       <TestimoniVideo />
