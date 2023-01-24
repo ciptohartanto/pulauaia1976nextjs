@@ -41,7 +41,7 @@ const App = ({ data }: AppProps) => {
 
 export default App;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: QUERY_HOME,
   });
