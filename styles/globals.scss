@@ -6,16 +6,32 @@ html {
 
 .globals {
   &-section {
-    width: 1200px;
+    width: 90vw;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 60px;
     padding-bottom: 60px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 18px;
+      padding-right: 18px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
   }
 
   &-judul {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 24px;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 18px;
+    }
   }
 }

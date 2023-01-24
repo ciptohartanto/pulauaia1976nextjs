@@ -41,6 +41,15 @@ const Lightbox = ({ webmedia }: LightboxType) => {
 
       {isShowSwiper && (
         <div className="lightbox-fullscreen">
+          <span
+            className="lightbox-close"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsShowSwiper(false);
+            }}
+          >
+            Tutup
+          </span>
           <div
             className="lightbox-overlay"
             onClick={(e) => {
