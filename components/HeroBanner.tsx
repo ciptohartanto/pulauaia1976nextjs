@@ -1,19 +1,16 @@
 import { Navigation, Pagination, Autoplay } from 'swiper';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const DUMMY = [
-  { url: 'https://pulauaia1976.com/images/slide1.jpg', id: '1' },
-  { url: 'https://pulauaia1976.com/images/slide2.jpg', id: '2' },
-  { url: 'https://pulauaia1976.com/images/slide3.jpg', id: '3' },
-];
+import { Slideshow } from '@/gql/graphql';
+
+type HeroBannerType = Pick<Slideshow, 'fotoSlideshow'>;
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export default () => {
+const HeroBanner = ({ fotoSlideshow }: HeroBannerType) => {
   return (
     <Swiper
       // install Swiper modules
@@ -24,7 +21,7 @@ export default () => {
       className="heroBanner-swiper"
       autoplay={{ delay: 10000 }}
     >
-      {DUMMY.map((item) => {
+      {fotoSlideshow.map((item) => {
         return (
           <SwiperSlide key={item.id} className="heroBanner-item">
             <div
@@ -37,3 +34,5 @@ export default () => {
     </Swiper>
   );
 };
+
+export default HeroBanner;

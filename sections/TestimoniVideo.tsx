@@ -1,16 +1,26 @@
-const TestimoniVideo = () => {
+import { Video } from '@/gql/graphql';
+
+type TestimoniVideoType = Pick<Video, 'judul' | 'webmedia'>;
+
+const TestimoniVideo = ({ judul, webmedia }: TestimoniVideoType) => {
   return (
     <section className="testimoniVideo globals-section">
-      <h2 className="globals-judul">Testimoni Video</h2>
+      <h2 className="globals-judul">{judul}</h2>
       <ul className="testimoniVideo-list">
-        <li className="testimoniVideo-item">
-          <video className="testimoniVideo-video" autoPlay muted controls>
-            <source
-              src="https://pulauaia1976.com/images/video/v-3.MP4#t0.5"
-              type="video/mp4"
-            ></source>
-          </video>
-        </li>
+        {webmedia?.media.map((item) => {
+          return (
+            <li className="testimoniVideo-item" key={item.id}>
+              <video
+                className="testimoniVideo-video"
+                muted
+                controls
+                preload="metadata"
+              >
+                <source src={item.url} type="video/mp4"></source>
+              </video>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

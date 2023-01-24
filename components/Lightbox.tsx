@@ -1,32 +1,34 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Navigation, Autoplay } from "swiper";
+import { Navigation, Autoplay } from 'swiper';
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-const DUMMY = [
-  { url: "https://pulauaia1976.com/images/slide1.jpg", id: "1" },
-  { url: "https://pulauaia1976.com/images/slide2.jpg", id: "2" },
-  { url: "https://pulauaia1976.com/images/slide3.jpg", id: "3" },
-];
+import { Photo } from '@/gql/graphql';
+
+type LightboxType = Pick<Photo, 'webmedia'>;
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
+import 'swiper/css';
+import 'swiper/css/navigation';
 
-const Lightbox = () => {
+const Lightbox = ({ webmedia }: LightboxType) => {
   const [currentId, setCurrentId] = useState<number>(0);
   const [isShowSwiper, setIsShowSwiper] = useState(false);
+
+  if (!webmedia) return <></>;
+
+  const { media } = webmedia;
 
   return (
     <div className="lightbox">
       <ul className="lightbox-list">
-        {DUMMY.map((item) => {
+        {media.map((item, id) => {
           return (
-            <li key={item.id} className="lightbox-item">
+            <li key={id} className="lightbox-item">
               <div
                 onClick={() => {
-                  setCurrentId(Number(item.id) - 1);
+                  setCurrentId(Number(id));
                   setIsShowSwiper(true);
                 }}
                 className="lightbox-content"
@@ -55,9 +57,9 @@ const Lightbox = () => {
             className="lightbox-swiper"
             initialSlide={currentId}
           >
-            {DUMMY.map((item) => {
+            {media.map((item, id) => {
               return (
-                <SwiperSlide key={item.id} className="lightbox-swiperItem">
+                <SwiperSlide key={id} className="lightbox-swiperItem">
                   <div
                     className="lightbox-swiperBackground"
                     style={{ backgroundImage: `url(${item.url})` }}

@@ -1,11 +1,14 @@
-import Lightbox from "@/components/Lightbox";
+import Lightbox from '@/components/Lightbox';
+import { Photo } from '@/gql/graphql';
 
-const GalleryFoto = () => {
+type GalleryFotoType = Pick<Photo, 'judul' | 'webmedia'>;
+
+const GalleryFoto = ({ webmedia, judul }: GalleryFotoType) => {
   return (
     <div className="galleryFoto globals-section">
-      <h2 className="galleryFoto globals-judul">Gallery Foto</h2>
+      <h2 className="galleryFoto globals-judul">{judul}</h2>
 
-      <Lightbox />
+      <Lightbox webmedia={webmedia} />
     </div>
   );
 };
