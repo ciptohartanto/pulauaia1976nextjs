@@ -1,0 +1,11 @@
+.testimoniVideo {
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 8px;
+  }
+  &-video {
+    display: block;
+    width: 100%;
+  }
+}
