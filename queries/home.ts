@@ -18,7 +18,7 @@ const QUERY_HOME = gql`
       galeriFoto {
         judul
         webmedia {
-          media {
+          media(last: 100) {
             url
           }
         }
