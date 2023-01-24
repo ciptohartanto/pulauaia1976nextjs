@@ -32,6 +32,10 @@ const QUERY_HOME = gql`
           }
         }
       }
+      footer {
+        telpon
+        alamat
+      }
     }
   }
 `;

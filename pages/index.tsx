@@ -3,7 +3,8 @@ import Header from '@/components/Header';
 import HeroBanner from '@/components/HeroBanner';
 import GalleryFoto from '@/sections/GalleryFoto';
 import TestimoniVideo from '@/sections/TestimoniVideo';
-import { Home, HomeQuery } from '@/gql/graphql';
+import Footer from '@/sections/Footer';
+import { Home } from '@/gql/graphql';
 
 import client from '@/apollo/client';
 import QUERY_HOME from '@/queries/home';
@@ -12,13 +13,14 @@ type AppProps = {
   data: {
     home: Pick<
       Home,
-      'dataWebsite' | 'fotoSlideshow' | 'galeriFoto' | 'testiVideo'
+      'dataWebsite' | 'fotoSlideshow' | 'galeriFoto' | 'testiVideo' | 'footer'
     >;
   };
 };
 
 const App = ({ data }: AppProps) => {
-  const { dataWebsite, galeriFoto, fotoSlideshow, testiVideo } = data.home;
+  const { dataWebsite, galeriFoto, fotoSlideshow, testiVideo, footer } =
+    data.home;
 
   return (
     <>
@@ -35,6 +37,7 @@ const App = ({ data }: AppProps) => {
       <HeroBanner fotoSlideshow={fotoSlideshow.fotoSlideshow} />
       <GalleryFoto webmedia={galeriFoto.webmedia} judul={galeriFoto.judul} />
       <TestimoniVideo judul={testiVideo.judul} webmedia={testiVideo.webmedia} />
+      <Footer alamat={footer.alamat} telpon={footer.telpon} />
     </>
   );
 };

@@ -1,0 +1,41 @@
+.footer {
+	background-color: rgb(189, 63, 0);
+	color: #fff;
+
+	&-caption {
+		display: block;
+		text-decoration: underline;
+		font-size: 12px;
+		margin-bottom: 10px;
+	}
+
+	&-section {
+		margin-bottom: 30px;
+
+		@media screen and (max-width: 768px) {
+			margin-bottom: 10px;
+		}
+
+		&:not(:first-of-type) {
+			margin-bottom: 30px;
+
+			@media screen and (max-width: 768px) {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	&-main {
+		font-size: 22px;
+		display: block;
+		font-weight: 700;
+		font-style: normal;
+		white-space: break-spaces;
+		color: #fff;
+		text-decoration: none;
+
+		@media screen and (max-width: 768px) {
+			font-size: 16px;
+		}
+	}
+}
