@@ -44,12 +44,13 @@ const App = ({ data }: AppProps) => {
 
 export default App;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data } = await client.query({
     query: QUERY_HOME,
   });
 
   return {
     props: { data }, // will be passed to the page component as props
+    revalidate: 10,
   };
 }
