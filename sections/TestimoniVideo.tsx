@@ -1,5 +1,5 @@
+import { Asset, Video } from '@/gql/graphql';
 import { useEffect, useRef } from 'react';
-import { Video, Asset } from '@/gql/graphql';
 
 type TestimoniVideoType = Pick<Video, 'judul' | 'webmedia'>;
 type TheVideoType = Pick<Asset, 'url'>;

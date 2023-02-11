@@ -1,13 +1,12 @@
-import Head from 'next/head';
+import client from '@/apollo/client';
 import Header from '@/components/Header';
 import HeroBanner from '@/components/HeroBanner';
+import { Home } from '@/gql/graphql';
+import QUERY_HOME from '@/queries/home';
+import Footer from '@/sections/Footer';
 import GalleryFoto from '@/sections/GalleryFoto';
 import TestimoniVideo from '@/sections/TestimoniVideo';
-import Footer from '@/sections/Footer';
-import { Home } from '@/gql/graphql';
-
-import client from '@/apollo/client';
-import QUERY_HOME from '@/queries/home';
+import Head from 'next/head';
 
 type AppProps = {
   data: {

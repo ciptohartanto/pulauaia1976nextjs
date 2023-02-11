@@ -1,16 +1,12 @@
-import { useState } from 'react';
-
-import { Navigation, Autoplay } from 'swiper';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 import { Photo } from '@/gql/graphql';
-
-type LightboxType = Pick<Photo, 'webmedia'>;
-
+import { useState } from 'react';
+import { Autoplay, Navigation } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+type LightboxType = Pick<Photo, 'webmedia'>;
 
 const Lightbox = ({ webmedia }: LightboxType) => {
   const [currentId, setCurrentId] = useState<number>(0);
